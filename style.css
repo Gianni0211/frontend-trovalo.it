@@ -9,8 +9,11 @@
   --color-secondary: #d6effa;
 
   --accent-color: #f19376;
+  --bg-color-body: #e8dacf;
 }
-
+body {
+  background-color: var(--bg-color-body);
+}
 html {
   font-family: "Noto Sans KR", sans-serif;
 }
@@ -68,11 +71,13 @@ h1 {
 /*Header*/
 
 .container-header {
-  margin-top: 100px;
+ 
   background-color: var(--color-secondary);
   border-radius: 30px;
   min-height: 300px;
   position: relative;
+  max-width: 90%;
+  margin: 80px auto;
 }
 
 .cta-box {
@@ -94,4 +99,11 @@ h1 {
   right: 100px;
 
   width: 60%;
+}
+
+.sfondo {
+  background-color: white;
+  max-width: 90%;
+  margin: auto;
+  he
 }
