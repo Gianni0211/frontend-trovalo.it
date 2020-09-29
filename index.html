@@ -28,8 +28,8 @@
   </head>
   <body>
     <div class="container-custom">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-main">
+        <a class="navbar-brand" href="#"> Trovalo </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -43,17 +43,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -63,16 +52,35 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Dropdown link
+                Categorie
               </a>
               <div
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Case</a>
+                <a class="dropdown-item" href="#">Motori</a>
+                <a class="dropdown-item" href="#">Cose </a>
               </div>
+            </li>
+          </ul>
+          <form class="form-inline mx-auto">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item mx-3">
+              <a href="">Aggiungi Annuncio</a>
+            </li>
+            <li class="nav-item">
+              <i class="fas fa-user"></i>
             </li>
           </ul>
         </div>
