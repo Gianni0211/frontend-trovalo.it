@@ -24,7 +24,8 @@ h1 {
     font-weight: 600;
     letter-spacing: 1.5px;
 }
-h2{
+
+h2 {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -44,17 +45,39 @@ h2{
     background-color: var(--accent-color);
 }
 
+.text-accent {
+    color: var(--accent-color);
+}
+
+.text-link-accent:hover {
+    text-decoration: none;
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-color);
+}
+
 /*Custom Bootstrap*/
 
 .sfondo {
     background-color: white;
-    max-width: 90%;
+    max-width: 80%;
     margin: auto;
-  
+}
+@media screen and (max-width: 768px) {
+    .sfondo {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .sfondo {
+        max-width: 100%;
+    }
 }
 
 .container-custom {
-    min-width: 90%;
+    min-width: 80%;
+    background-color: white;
     padding-right: 5px;
     padding-left: 5px;
     margin-right: auto;
@@ -98,65 +121,63 @@ h2{
     color: var(--accent-color)
 }
 
-
 .search:active, .search:focus, .search-box:active, .search-box:focus {
     outline: none;
-    
 }
 
 .search-box {
     height: 40px;
     width: 40px;
-    border:none;
-    border-radius: 20px 0 0 20px ;
-    background-color:#f6f6f6;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    background-color: #f6f6f6;
     transition: .4s;
 }
 
-.search__expanded{
+.search__expanded {
     width: 200px;
     height: 40px;
-    
-    border:none;
-    border-radius: 20px 0 0 20px ;
-    background-color:#f6f6f6;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    background-color: #f6f6f6;
     transition: .4s;
 }
 
-.search-box:focus, .search-box:active, .search__expanded:focus, .search__expanded:active{
+.search-box:focus, .search-box:active, .search__expanded:focus, .search__expanded:active {
     background-color: #f6f6f6;
-   border: none;
-   box-shadow: none;
-   width: 300px;
+    border: none;
+    box-shadow: none;
+    width: 300px;
 }
 
-.form-wrapper{
+.form-wrapper {
     display: flex;
 }
 
 /*Add cta*/
-.add-cta{
+
+.add-cta {
     display: inline-block;
-  
-    background-color:  #f193766c;
+    background-color: #f193766c;
     text-decoration: none;
     color: white;
     border: 2px dotted var(--accent-color);
     text-align: center;
     padding: 10px;
 }
-.add-cta:hover{
+
+.add-cta:hover {
     color: white;
     text-decoration: none;
     transform: scale(1.1);
 }
+
 .add-cta i {
     margin-right: 20px;
 }
 
-.login-user{
-    margin-top: 3px ;
-    
+.login-user {
+    margin-top: 3px;
     display: inline-block;
     border-radius: 100%;
     width: 40px;
@@ -170,15 +191,17 @@ h2{
     justify-content: center;
     align-items: center;
 }
-.login-user:active, .login-user:visited, .login-user:hover{
+
+.login-user:active, .login-user:visited, .login-user:hover {
     color: black;
     text-decoration: none;
 }
-.login-user:hover{
+
+.login-user:hover {
     color: black;
     text-decoration: none;
     color: white;
-    background-color:  #f193766c;
+    background-color: #f193766c;
 }
 
 /*Header*/
@@ -212,7 +235,7 @@ h2{
     width: 100%;
 }
 
-.header-text{
+.header-text {
     padding: 0;
     margin: 0 0 10px 0;
     font-weight: 100;
@@ -220,25 +243,66 @@ h2{
 
 /*Category*/
 
-.category-card{
+.category-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: space-around;
     justify-content: center;
     height: 150px;
-    padding: 50px 10px;
+    padding: 50px 5px;
     border-radius: 20px;
     background-color: var(--color-main);
-    border: 2px solid black;
     text-decoration: none;
-    color:black;
+    color: black;
 }
+
 .category-card:hover {
     text-decoration: none;
     color: black;
 }
+
 .category-card i {
-    
+    margin: 20px;
     font-size: 50px;
     color: var(--accent-color);
+}
+
+@media screen and (max-width: 768px) {
+    .category-card {
+       margin: 10px 0;
+    }
+}
+/*cta post*/
+
+.cta-post-wrapper {
+    display: inline-block;
+    min-height: 200px;
+    background-color: var(--color-main);
+    display: flex;
+    align-content: space-around;
+    justify-content: center;
+    border-radius: 30px;
+    padding: 30px;
+}
+.cta-post-text {
+   max-width: 50%;
+}
+
+@media screen and (max-width: 576px) {
+    .cta-post-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        padding: 10px;
+        max-width: 80%;
+        margin: 10px;
+    }
+}
+
+
+
+.cta-post-wrapper img {
+    width: 30%;
+    margin: 0 50px;
 }
