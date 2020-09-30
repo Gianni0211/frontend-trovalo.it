@@ -29,7 +29,7 @@
   <body>
     <div class="sfondo">
       <!--navbar-->
-      <div class="container-custom">
+      <section class="container-custom">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
           <a class="navbar-brand text-bold" href="#"> Trovalo </a>
           <button
@@ -44,6 +44,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <!--questo rompe il tutto, valutiamo se tenerlo o farlo custom con js-->
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a
@@ -91,7 +92,7 @@
             </ul>
           </div>
         </nav>
-      </div>
+      </section>
       <!--Header-->
       <header>
         <div class="container-custom">
@@ -139,37 +140,37 @@
               </div>
             </div>
             <div class="row text-center pb-5 pt-3 text-center">
-              <div class="col-lg-2 col-6">
+              <div class="col-lg-2 col-6 mb-3 mb-lg-0">
                 <a href="" class="category-card">
                   <i class="fas fa-car"></i>
                   <p class="lead">Veicoli</p>
                 </a>
               </div>
-              <div class="col-lg-2 col-6">
+              <div class="col-lg-2 col-6 mb-3 mb-lg-0">
                 <a href="" class="category-card">
                   <i class="fas fa-home"></i>
                   <p class="lead">Case</p>
                 </a>
               </div>
-              <div class="col-lg-2 col-6">
+              <div class="col-lg-2 col-6 mb-3 mb-lg-0">
                 <a href="" class="category-card">
                   <i class="fas fa-tools"></i>
                   <p class="lead">Attrezzi</p>
                 </a>
               </div>
-              <div class="col-lg-2 col-6">
+              <div class="col-lg-2 col-6 mb-3 mb-lg-0">
                 <a href="" class="category-card">
                   <i class="fas fa-briefcase"></i>
                   <p class="lead">Lavori</p>
                 </a>
               </div>
-              <div class="col-lg-2 col-6">
+              <div class="col-lg-2 col-6 mb-3 mb-lg-0">
                 <a href="" class="category-card">
                   <i class="fas fa-gamepad"></i>
                   <p class="lead">Intrattenimento</p>
                 </a>
               </div>
-              <div class="col-lg-2 col-6">
+              <div class="col-lg-2 col-6 mb-3 mb-lg-0">
                 <a href="" class="category-card">
                   <i class="fas fa-laptop"></i>
                   <p class="lead">Elettronica</p>
@@ -180,7 +181,8 @@
         </section>
 
         <section id="cta-post">
-          <div class="container-custom">
+          <div class="container-custom container-cta-post">
+            <!--aggiunta la classe per i bordi-->
             <div class="row py-5">
               <div class="col-12">
                 <div class="cta-post-wrapper">
@@ -189,7 +191,7 @@
                     alt="phone"
                     class="d-none d-md-block"
                   />
-                  <div class="cta-post-text my-auto mx-auto ">
+                  <div class="cta-post-text my-auto mx-auto">
                     <h2>Trova qualcosa o qualcuno</h2>
                     <p>
                       Non perdere tempo: Trovalo. Che sia il regalo dei tuoi
@@ -205,7 +207,6 @@
                 </div>
               </div>
             </div>
-            
           </div>
         </section>
       </main>
