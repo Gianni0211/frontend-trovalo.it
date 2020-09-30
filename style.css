@@ -56,6 +56,13 @@ h2 {
     text-decoration-color: var(--accent-color);
 }
 
+/*Logo*/
+.logo{
+    position: relative;
+    top:4px;
+    font-size: 30px;
+}
+
 /*nav mobile*/
 
 @media screen and (max-width: 768px) {
