@@ -19,6 +19,7 @@ menuButton.addEventListener("click", () => {
 // https://fakestoreapi.com/products
 
 const addProduct = (prodotti) => {
+  productWrapper.innerHTML = "";
   prodotti.forEach((el) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -43,13 +44,14 @@ const addProduct = (prodotti) => {
 };
 const addCat = (data) => {
   let categorie = Array.from(new Set(data.map((el) => el.category))).sort();
-  console.log(categorie);
 
   categorie.forEach((el) => {
     let div = document.createElement("div");
     div.innerHTML = `<div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="${el}" />
-      <label class="custom-control-label" for="${el}">
+      <input type="checkbox" class="custom-control-input" id="${el
+        .split(" ")
+        .join("")}" />
+      <label class="custom-control-label" for="${el.split(" ").join("")}"">
         ${el}
       </label>
     </div>`;
@@ -65,6 +67,27 @@ const productSett = async () => {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
     addCat(data);
+    const input = document.querySelectorAll("input[type=checkbox]");
+    let filterCat = [];
+
+    input.forEach((el) => {
+      el.addEventListener("input", (item) => {
+        let check = item.target.checked;
+
+        if (check) {
+          filterCat.push(item.target.id);
+        } else {
+          let index = filterCat.indexOf(item.target.id);
+
+          filterCat.splice(index, 1);
+        }
+        let filterData = data.filter((el) => {
+          return filterCat.includes(el.category.split(" ").join(""));
+        });
+        console.log(filterData);
+        addProduct(filterData.length > 0 ? filterData : data);
+      });
+    });
 
     addProduct(data);
   } catch (err) {
