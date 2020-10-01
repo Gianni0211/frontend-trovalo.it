@@ -132,6 +132,6 @@ const productSett = async () => {
 };
 
 //Controlliamo di essere nella pagina corretta
-if (window.location.href == "http://127.0.0.1:5500/products.html") {
+if (window.location.href == "http://127.0.0.1:5500/products.html" || window.location.href.split('/')[4] =='products') {
   productSett();
 }
