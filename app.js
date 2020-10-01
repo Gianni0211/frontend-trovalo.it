@@ -15,3 +15,45 @@ menuButton.addEventListener("click", () => {
     menu.style.display = "none";
   }
 });
+
+// https://fakestoreapi.com/products
+
+const addProduct = (prodotti) => {
+  prodotti.forEach((el) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <div class="product-detail-card mt-5">
+            <div class="img-prod-d">
+              <img src="${el.image}" class="img-fluid"  alt="${el.title}" />
+            </div>
+            <div class="product-description">
+              <a href="" class="text-decoration-none text-dark"
+                ><h5>${el.title}</h5></a
+              >
+              <p class="lead">
+                ${el.description.substr(0, 50)}[..]
+              </p>
+              <p class="h2 d-inline-block">${el.price}€</p>
+              <div class="add-cta float-right mr-4">Dettagli</div>
+            </div>
+        </div>`;
+
+    productWrapper.appendChild(div);
+  });
+};
+
+const productSett = async () => {
+  const productWrapper = document.querySelector("#productWrapper");
+
+  try {
+    const dataJson = await fetch("https://fakestoreapi.com/products");
+    const data = await dataJson.json();
+   
+    addProduct(data);
+  } catch (err) {
+    console.log(err);
+    alert("oh no.. Qualcosa è andato storto");
+  }
+};
+
+productSett();

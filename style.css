@@ -405,8 +405,14 @@ footer {
 }
 
 .img-prod-d {
-  max-width: 200px;
-  max-height: 200px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 25px;
+  border-radius: 20px;
 }
 
 .product-detail-card img {
