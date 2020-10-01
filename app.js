@@ -59,43 +59,70 @@ const addCat = (data) => {
   });
 };
 
-const filterByCat = (data) =>{
+const filterByCat = (data) => {
   const input = document.querySelectorAll("input[type=checkbox]");
-    let filterCat = [];
+  let filterCat = [];
 
-    input.forEach((el) => {
-      el.addEventListener("input", (item) => {
-        let check = item.target.checked;
+  input.forEach((el) => {
+    el.addEventListener("input", (item) => {
+      let check = item.target.checked;
 
-        if (check) {
-          filterCat.push(item.target.id);
-        } else {
-          let index = filterCat.indexOf(item.target.id);
+      if (check) {
+        filterCat.push(item.target.id);
+      } else {
+        let index = filterCat.indexOf(item.target.id);
 
-          filterCat.splice(index, 1);
-        }
-        let filterData = data.filter((el) => {
-          return filterCat.includes(el.category.split(" ").join(""));
-        });
-        console.log(filterData);
-        addProduct(filterData.length > 0 ? filterData : data);
+        filterCat.splice(index, 1);
+      }
+      let filterData = data.filter((el) => {
+        return filterCat.includes(el.category.split(" ").join(""));
       });
+      console.log(filterData);
+      addProduct(filterData.length > 0 ? filterData : data);
     });
+  });
+};
+
+const filterByPrice = (data) => {
+   //Max price
+   const maxPrice = data.map(el=> el.price).sort((a,b)=>a-b).pop()
+   rangeValues.innerHTML=` <p id='rangeValues'>0€<span class="float-right" >${+maxPrice+1}</span></p>`
+   
+
+   range.max= +maxPrice+1
+
+
+   range.addEventListener('input',()=>{
+     currentValue.innerHTML = range.value
+     let filterValueSelected = range.value
+     const filteredDataByValue = data.filter(el=> el.price <= filterValueSelected);
+     addProduct(filteredDataByValue);
+   })
 }
+
+
 
 const productSett = async () => {
   const productWrapper = document.querySelector("#productWrapper");
   const categorieWrapper = document.querySelector("#categorieWrapper");
-
+  const range = document.querySelector("#range");
+  const rangeValues = document.querySelector("#rangeValues");
+  const currentValue = document.querySelector('#currentValue');
+ 
+  
+  
+ 
   try {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
 
 
+   
+   
 
+    filterByPrice(data);
     addCat(data);
     filterByCat(data);
-    
 
     addProduct(data);
   } catch (err) {
@@ -103,7 +130,6 @@ const productSett = async () => {
     alert("oh no.. Qualcosa è andato storto");
   }
 };
-
 
 //Controlliamo di essere nella pagina corretta
 if (window.location.href == "http://127.0.0.1:5500/products.html") {

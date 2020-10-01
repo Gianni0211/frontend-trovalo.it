@@ -94,7 +94,7 @@ footer {
 @media screen and (max-width: 1024px) {
   .sfondo {
     max-width: 90%;
-    padding: 0 50px;
+    padding: 0px;
   }
 }
 
