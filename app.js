@@ -18,13 +18,11 @@ menuButton.addEventListener("click", () => {
 
 // https://fakestoreapi.com/products
 
-
-if (window.location.href == "http://127.0.0.1:5500/products.html") {
-  const addProduct = (prodotti) => {
-    productWrapper.innerHTML = "";
-    prodotti.forEach((el) => {
-      const div = document.createElement("div");
-      div.innerHTML = `
+const addProduct = (prodotti) => {
+  productWrapper.innerHTML = "";
+  prodotti.forEach((el) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
           <div class="product-detail-card mt-5">
               <div class="img-prod-d">
                 <img src="${el.image}" class="img-fluid"  alt="${el.title}" />
@@ -41,15 +39,15 @@ if (window.location.href == "http://127.0.0.1:5500/products.html") {
               </div>
           </div>`;
 
-      productWrapper.appendChild(div);
-    });
-  };
-  const addCat = (data) => {
-    let categorie = Array.from(new Set(data.map((el) => el.category))).sort();
+    productWrapper.appendChild(div);
+  });
+};
+const addCat = (data) => {
+  let categorie = Array.from(new Set(data.map((el) => el.category))).sort();
 
-    categorie.forEach((el) => {
-      let div = document.createElement("div");
-      div.innerHTML = `<div class="custom-control custom-switch">
+  categorie.forEach((el) => {
+    let div = document.createElement("div");
+    div.innerHTML = `<div class="custom-control custom-switch">
         <input type="checkbox" class="custom-control-input" id="${el
           .split(" ")
           .join("")}" />
@@ -57,47 +55,57 @@ if (window.location.href == "http://127.0.0.1:5500/products.html") {
           ${el}
         </label>
       </div>`;
-      categorieWrapper.appendChild(div);
-    });
-  };
+    categorieWrapper.appendChild(div);
+  });
+};
 
-  const productSett = async () => {
-    const productWrapper = document.querySelector("#productWrapper");
-    const categorieWrapper = document.querySelector("#categorieWrapper");
+const filterByCat = (data) =>{
+  const input = document.querySelectorAll("input[type=checkbox]");
+    let filterCat = [];
 
-    try {
-      const dataJson = await fetch("https://fakestoreapi.com/products");
-      const data = await dataJson.json();
-      addCat(data);
+    input.forEach((el) => {
+      el.addEventListener("input", (item) => {
+        let check = item.target.checked;
 
-      const input = document.querySelectorAll("input[type=checkbox]");
-      let filterCat = [];
+        if (check) {
+          filterCat.push(item.target.id);
+        } else {
+          let index = filterCat.indexOf(item.target.id);
 
-      input.forEach((el) => {
-        el.addEventListener("input", (item) => {
-          let check = item.target.checked;
-
-          if (check) {
-            filterCat.push(item.target.id);
-          } else {
-            let index = filterCat.indexOf(item.target.id);
-
-            filterCat.splice(index, 1);
-          }
-          let filterData = data.filter((el) => {
-            return filterCat.includes(el.category.split(" ").join(""));
-          });
-          console.log(filterData);
-          addProduct(filterData.length > 0 ? filterData : data);
+          filterCat.splice(index, 1);
+        }
+        let filterData = data.filter((el) => {
+          return filterCat.includes(el.category.split(" ").join(""));
         });
+        console.log(filterData);
+        addProduct(filterData.length > 0 ? filterData : data);
       });
+    });
+}
 
-      addProduct(data);
-    } catch (err) {
-      console.log(err);
-      alert("oh no.. Qualcosa è andato storto");
-    }
-  };
+const productSett = async () => {
+  const productWrapper = document.querySelector("#productWrapper");
+  const categorieWrapper = document.querySelector("#categorieWrapper");
 
+  try {
+    const dataJson = await fetch("https://fakestoreapi.com/products");
+    const data = await dataJson.json();
+
+
+
+    addCat(data);
+    filterByCat(data);
+    
+
+    addProduct(data);
+  } catch (err) {
+    console.log(err);
+    alert("oh no.. Qualcosa è andato storto");
+  }
+};
+
+
+//Controlliamo di essere nella pagina corretta
+if (window.location.href == "http://127.0.0.1:5500/products.html") {
   productSett();
 }
