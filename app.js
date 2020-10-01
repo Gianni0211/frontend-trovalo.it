@@ -41,14 +41,31 @@ const addProduct = (prodotti) => {
     productWrapper.appendChild(div);
   });
 };
+const addCat = (data) => {
+  let categorie = Array.from(new Set(data.map((el) => el.category))).sort();
+  console.log(categorie);
+
+  categorie.forEach((el) => {
+    let div = document.createElement("div");
+    div.innerHTML = `<div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="${el}" />
+      <label class="custom-control-label" for="${el}">
+        ${el}
+      </label>
+    </div>`;
+    categorieWrapper.appendChild(div);
+  });
+};
 
 const productSett = async () => {
   const productWrapper = document.querySelector("#productWrapper");
+  const categorieWrapper = document.querySelector("#categorieWrapper");
 
   try {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
-   
+    addCat(data);
+
     addProduct(data);
   } catch (err) {
     console.log(err);
