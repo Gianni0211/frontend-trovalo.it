@@ -377,6 +377,35 @@ footer{
     padding: 0;
 }
 
+/*Product detail card*/
+.product-detail-card {
+    display: flex;
+    
+    align-items: center;
+    justify-content: start;
+    min-height: 200px;
+    padding: 15px 0px;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    text-decoration: none;
+    color: black;
+}
+.product-description{
+    align-self: center;
+    justify-self: start;
+    width: 80%;
+}
+
+.img-prod-d {
+    
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.product-detail-card img {
+    width: 100%;
+    padding: 0;
+}
 /*Footer*/
 
 footer a {
