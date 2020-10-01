@@ -9,6 +9,8 @@
     --color-secondary: #d6effa;
     --accent-color: #f19376;
     --bg-color-body: #e8dacf;
+    --color-footer: #99918a;
+
 }
 
 body {
@@ -29,6 +31,10 @@ h2 {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: 400;
     font-size: 20px;
+}
+
+footer{
+    background-color: var(--color-footer);
 }
 
 /*Utility stile*/
