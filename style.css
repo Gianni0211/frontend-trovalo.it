@@ -470,3 +470,7 @@ html.is-animating .transition-fade {
 .zindex-custom {
   z-index: 99999999;
 }
+
+.text-title {
+  font-weight: 900;
+}
