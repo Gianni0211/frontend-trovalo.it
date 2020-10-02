@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="sfondo">
+    <div class="sfondo transition-fade" id="swup">
       <!--navbar-->
       <section class="container-custom">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -149,7 +149,7 @@
             <div class="row d-flex justify-content-between mx-3 py-3 px-2">
               <div class="col-12 d-flex justify-content-between">
                 <h3>Categorie prodotti</h3>
-                <a href="" class="text-accent text-link-accent">Show all...</a>
+                <a href="/products.html" class="text-accent text-link-accent">Show all...</a>
               </div>
             </div>
             <div class="row text-center pb-5 pt-3 mx-3 text-center">
@@ -536,6 +536,10 @@
       src="https://kit.fontawesome.com/85e1570e38.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
+    <script>
+      const swup = new Swup();
+    </script>
 
     <!-- Nostro js -->
     <script src="app.js"></script>

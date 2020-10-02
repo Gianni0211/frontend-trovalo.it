@@ -455,3 +455,20 @@ footer a:hover {
   transition-duration: 0.5s;
   transition-delay: 0.1s;
 }
+
+
+
+
+/*Effetto Animazione Cambio pagina*/
+.transition-fade {
+  transition: 0.4s;
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
