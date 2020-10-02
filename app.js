@@ -109,12 +109,14 @@ const orderByPrice = (data) => {
   const crescente = document.querySelector("#crescente");
   const decrescente = document.querySelector("#decrescente");
 
-  crescente.addEventListener("click", () => {
+  crescente.addEventListener("click", (e) => {
+    e.preventDefault()
     let test = data.sort((a, b) => a.price - b.price);
     addProduct(test);
   });
 
-  decrescente.addEventListener("click", () => {
+  decrescente.addEventListener("click", (e) => {
+    e.preventDefault()
     let test = data.sort((a, b) => b.price - a.price);
     addProduct(test);
   });
