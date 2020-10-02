@@ -35,7 +35,7 @@ const addProduct = (prodotti) => {
                   ${el.description.substr(0, 50)}[..]
                 </p>
                 <p class="h2 d-inline-block">${el.price}€</p>
-                <div class="add-cta float-right mr-4">Dettagli</div>
+                <div class="add-cta float-right mr-4 transition-fade" id="swup"><a href="./articolo.html">Dettagli</a></div>
               </div>
           </div>`;
 
