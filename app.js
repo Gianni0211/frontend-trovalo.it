@@ -105,6 +105,20 @@ const filterByPrice = (data) => {
   });
 };
 
+const orderByPrice = (data) => {
+  const crescente = document.querySelector("#crescente");
+  const decrescente = document.querySelector("#decrescente");
+
+  crescente.addEventListener("click", () => {
+    let test = data.sort((a, b) => a.price - b.price);
+    addProduct(test);
+  });
+
+  decrescente.addEventListener("click", () => {
+    let test = data.sort((a, b) => b.price - a.price);
+    addProduct(test);
+  });
+};
 const filtertByWord = (data) => {
   const boxRicerca = document.querySelectorAll("input[type=search]");
   boxRicerca.forEach((el) =>
@@ -124,16 +138,16 @@ const productSett = async () => {
   const range = document.querySelector("#range");
   const rangeValues = document.querySelector("#rangeValues");
   const currentValue = document.querySelector("#currentValue");
-  
 
   try {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
+    orderByPrice(data);
 
     filterByPrice(data);
     addCat(data);
     filterByCat(data);
-    filtertByWord(data)
+    filtertByWord(data);
     addProduct(data);
   } catch (err) {
     console.log(err);
