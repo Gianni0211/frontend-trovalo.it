@@ -474,3 +474,10 @@ html.is-animating .transition-fade {
 .text-title {
   font-weight: 900;
 }
+
+
+
+.swiper-container {
+  height: 100%;
+  width: 100%;
+}

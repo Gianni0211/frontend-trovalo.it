@@ -21,8 +21,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=Noto+Sans+KR:wght@100;400;700&display=swap"
       rel="stylesheet"
     />
-    <!--slick-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+
+    <!-- Carousel -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
     <!-- Nostro css -->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -44,7 +49,6 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <!--questo rompe il tutto, valutiamo se tenerlo o farlo custom con js-->
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a
@@ -99,11 +103,35 @@
           </div>
         </nav>
       </section>
+
       <section class="prodotto">
         <div class="container-custom mt-5">
-          <div class="row my-4 mt-5 align-items-center">
-            <div class="col-12 col-md-8">
-           qui va lo slider 
+          <div class="row my-4 mt-5">
+            <div class="col-12 col-md-8 h-100 px-5">
+              <!-- Inizia qui -->
+              <div class="swiper-container">
+                <div class="swiper-container gallery-top">
+                  <div class="swiper-wrapper text-center">
+                    <div class="swiper-slide"><img src="./media/products/prod-1.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-2.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-3.png" alt="" width="50%"></div>
+                   
+                  </div>
+                  <!-- Add Arrows -->
+                  <div class="swiper-button-next swiper-button-black"></div>
+                  <div class="swiper-button-prev swiper-button-black"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                  <div class="swiper-wrapper text-center">
+                    <div class="swiper-slide"><img src="./media/products/prod-1.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-2.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-3.png" alt="" width="50%"></div>
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- Finisce qui -->
+            </div>
             <div class="col-12 my-5 col-md-4 text-center text-lg-left">
               <h2 class="text-title">Titolo</h2>
               <p class="small">
@@ -134,31 +162,26 @@
         <div class="container-custom">
           <div class="row">
             <div class="col-12">
-             
-                <div
-                  class="row container-header align-items-center justify-content-center"
-                >
-                  <div class="col-12  text-left">
-                    <h2>Nome</h2>
-                    <p class="small">31/04/66</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <p>22</p>
-                    <p>Annunci online</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <p>100</p>
-                    <p>Annunci pubblicati</p>
-                  </div>
-                  <div class="col-12 text-center">
-                   
-                   <a href="" class="add-cta">
+              <div
+                class="row container-header align-items-center justify-content-center"
+              >
+                <div class="col-12 text-left">
+                  <h2>Nome</h2>
+                  <p class="small">31/04/66</p>
+                </div>
+                <div class="col-6 text-center">
+                  <p>22</p>
+                  <p>Annunci online</p>
+                </div>
+                <div class="col-6 text-center">
+                  <p>100</p>
+                  <p>Annunci pubblicati</p>
+                </div>
+                <div class="col-12 text-center">
+                  <a href="" class="add-cta">
                     <i class="fas fa-phone fa-rotate-180"></i>
                     Contatta
-                    
-                    
-                   </a>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -314,24 +337,34 @@
       src="https://kit.fontawesome.com/85e1570e38.js"
       crossorigin="anonymous"
     ></script>
-<!--slick slider-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
+    <!-- Carousel js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Nostro js -->
     <script src="app.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('#slider').slick({
-         slidesToShow: 1,
-         slidesToScroll: 1,
-         arrows: false,
-         fade: true,
-        /*  asNavFor: '.slider-nav' */
-  });
-});
-      
-      
+
+    <script type="module">
+      var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      loop: true,
+      freeMode: true,
+      loopedSlides: 5, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      loop:true,
+      loopedSlides: 5, //looped slides should be the same
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs,
+      },
+    });
     </script>
   </body>
 </html>
