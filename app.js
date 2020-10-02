@@ -84,46 +84,56 @@ const filterByCat = (data) => {
 };
 
 const filterByPrice = (data) => {
-   //Max price
-   const maxPrice = data.map(el=> el.price).sort((a,b)=>a-b).pop()
-   rangeValues.innerHTML=` <p id='rangeValues'>0€<span class="float-right" >${+maxPrice+1}</span></p>`
-   
+  //Max price
+  const maxPrice = data
+    .map((el) => el.price)
+    .sort((a, b) => a - b)
+    .pop();
+  rangeValues.innerHTML = ` <p id='rangeValues'>0€<span class="float-right" >${
+    +maxPrice + 1
+  }€</span></p>`;
 
-   range.max= +maxPrice+1
+  range.max = +maxPrice + 1;
 
+  range.addEventListener("input", () => {
+    currentValue.innerHTML = range.value + "€";
+    let filterValueSelected = range.value;
+    const filteredDataByValue = data.filter(
+      (el) => el.price <= filterValueSelected
+    );
+    addProduct(filteredDataByValue);
+  });
+};
 
-   range.addEventListener('input',()=>{
-     currentValue.innerHTML = range.value
-     let filterValueSelected = range.value
-     const filteredDataByValue = data.filter(el=> el.price <= filterValueSelected);
-     addProduct(filteredDataByValue);
-   })
-}
+const filtertByWord = (data) => {
+  const boxRicerca = document.querySelectorAll("input[type=search]");
+  boxRicerca.forEach((el) =>
+    el.addEventListener("input", (e) => {
+      let filteredData = data.filter((prod) =>
+        prod.title.toLowerCase().includes(e.target.value.toLowerCase())
+      );
 
-
+      addProduct(filteredData);
+    })
+  );
+};
 
 const productSett = async () => {
   const productWrapper = document.querySelector("#productWrapper");
   const categorieWrapper = document.querySelector("#categorieWrapper");
   const range = document.querySelector("#range");
   const rangeValues = document.querySelector("#rangeValues");
-  const currentValue = document.querySelector('#currentValue');
- 
+  const currentValue = document.querySelector("#currentValue");
   
-  
- 
+
   try {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
 
-
-   
-   
-
     filterByPrice(data);
     addCat(data);
     filterByCat(data);
-
+    filtertByWord(data)
     addProduct(data);
   } catch (err) {
     console.log(err);
@@ -132,6 +142,9 @@ const productSett = async () => {
 };
 
 //Controlliamo di essere nella pagina corretta
-if (window.location.href == "http://127.0.0.1:5500/products.html" || window.location.href.split('/')[4] =='products') {
+if (
+  window.location.href == "http://127.0.0.1:5500/products.html" ||
+  window.location.href.split("/")[4] == "products"
+) {
   productSett();
 }
