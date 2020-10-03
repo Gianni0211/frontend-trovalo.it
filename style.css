@@ -108,11 +108,12 @@ footer {
 @media screen and (max-width: 576px) {
   .sfondo {
     max-width: 100%;
+    overflow: hidden;
   }
-}
+} 
 
 .container-custom {
-  min-width: 80%;
+  max-width: 90%;
   background-color: white;
   padding-right: 5px;
   padding-left: 5px;
@@ -477,7 +478,11 @@ html.is-animating .transition-fade {
 
 
 
+/*Container carosello*/
+
 .swiper-container {
   height: 100%;
   width: 100%;
 }
+
+
