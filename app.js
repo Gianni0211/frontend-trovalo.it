@@ -23,7 +23,7 @@ const addProduct = (prodotti) => {
   prodotti.forEach((el) => {
     const div = document.createElement("div");
     div.innerHTML = `
-          <div class="product-detail-card mt-5">
+          <div class="product-detail-card mt-5 mb-5">
               <div class="img-prod-d">
                 <img src="${el.image}" class="img-fluid"  alt="${el.title}" />
               </div>
