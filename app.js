@@ -34,11 +34,13 @@ const addProduct = (prodotti) => {
                 <p class="lead">
                   ${el.description.substr(0, 50)}[..]
                 </p>
-                <p class="h2 d-inline-block">${el.price}€</p>
-                <div class="add-cta float-right mr-4 transition-fade" id="swup"><a href="./articolo.html?${
+                <div class='mt-5'>
+                  <p class="h2 d-inline-block">${el.price}€</p>
+                <a class="view-more-cta float-right mr-4" href="/articolo.html?${
                   el.id
-                }">Dettagli</a></div>
-              </div>
+                }">Dettagli</a>
+                </div>
+            </div>
           </div>`;
 
     productWrapper.appendChild(div);
@@ -147,7 +149,7 @@ const productSett = async () => {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
 
-    localStorage.setItem('data', JSON.stringify(data));
+    localStorage.setItem("data", JSON.stringify(data));
     orderByPrice(data);
 
     filterByPrice(data);
@@ -164,43 +166,32 @@ const productSett = async () => {
 //Populate article details
 
 const url = new URL(window.location.href);
-console.log(url);
-const productDetailSetter = async () => {
+
+const productDetailSetter = () => {
   if (url.search) {
-    console.log(url.search);
     const titolo = document.querySelector("#titolo");
     const price = document.querySelector("#price");
     const category = document.querySelector("#category");
     const description = document.querySelector("#description");
-    const carouselImg = document.querySelectorAll('.swiper-slide img')
-    
+    const carouselImg = document.querySelectorAll(".swiper-slide img");
 
-    try {
-      // const dataJson = await fetch("https://fakestoreapi.com/products");
-      // const data = await dataJson.json();
-      let dataString = localStorage.getItem('data')
-      let data = JSON.parse(dataString)
-      const product = data.filter((el) => el.id == url.search[1]);
-      console.log(product[0].title);
-      titolo.innerHTML = product[0].title;
-      price.innerHTML = product[0].price + "€";
-      category.innerHTML = product[0].category
-      description.innerHTML = product[0].description
-      carouselImg.forEach(el=> el.src = product[0].image)
+    //Accedo dal local storage per performance
+    let dataString = localStorage.getItem("data");
+    let data = JSON.parse(dataString);
 
-
-    } catch (err) {
-      console.log(err);
-      alert("oh no.. Qualcosa è andato storto");
-    }
+    //filtro in base al paramentro inserito nell url (id prodotto)
+    const product = data.filter((el) => el.id == url.search[1]);
+    //popolo i campi
+    titolo.innerHTML = product[0].title;
+    price.innerHTML = product[0].price + "€";
+    category.innerHTML = product[0].category;
+    description.innerHTML = product[0].description;
+    carouselImg.forEach((el) => (el.src = product[0].image));
   }
 };
 productDetailSetter();
 
 //Controlliamo di essere nella pagina corretta
-if (
-  window.location.href == "http://127.0.0.1:5500/products.html" ||
-  window.location.href.split("/")[4] == "products"
-) {
+if (url.pathname.includes("/products.html")) {
   productSett();
 }
