@@ -35,7 +35,9 @@ const addProduct = (prodotti) => {
                   ${el.description.substr(0, 50)}[..]
                 </p>
                 <p class="h2 d-inline-block">${el.price}€</p>
-                <div class="add-cta float-right mr-4 transition-fade" id="swup"><a href="./articolo.html">Dettagli</a></div>
+                <div class="add-cta float-right mr-4 transition-fade" id="swup"><a href="./articolo.html?${
+                  el.id
+                }">Dettagli</a></div>
               </div>
           </div>`;
 
@@ -110,13 +112,13 @@ const orderByPrice = (data) => {
   const decrescente = document.querySelector("#decrescente");
 
   crescente.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let test = data.sort((a, b) => a.price - b.price);
     addProduct(test);
   });
 
   decrescente.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let test = data.sort((a, b) => b.price - a.price);
     addProduct(test);
   });
@@ -144,6 +146,8 @@ const productSett = async () => {
   try {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
+
+    localStorage.setItem('data', JSON.stringify(data));
     orderByPrice(data);
 
     filterByPrice(data);
@@ -156,6 +160,42 @@ const productSett = async () => {
     alert("oh no.. Qualcosa è andato storto");
   }
 };
+
+//Populate article details
+
+const url = new URL(window.location.href);
+console.log(url);
+const productDetailSetter = async () => {
+  if (url.search) {
+    console.log(url.search);
+    const titolo = document.querySelector("#titolo");
+    const price = document.querySelector("#price");
+    const category = document.querySelector("#category");
+    const description = document.querySelector("#description");
+    const carouselImg = document.querySelectorAll('.swiper-slide img')
+    
+
+    try {
+      // const dataJson = await fetch("https://fakestoreapi.com/products");
+      // const data = await dataJson.json();
+      let dataString = localStorage.getItem('data')
+      let data = JSON.parse(dataString)
+      const product = data.filter((el) => el.id == url.search[1]);
+      console.log(product[0].title);
+      titolo.innerHTML = product[0].title;
+      price.innerHTML = product[0].price + "€";
+      category.innerHTML = product[0].category
+      description.innerHTML = product[0].description
+      carouselImg.forEach(el=> el.src = product[0].image)
+
+
+    } catch (err) {
+      console.log(err);
+      alert("oh no.. Qualcosa è andato storto");
+    }
+  }
+};
+productDetailSetter();
 
 //Controlliamo di essere nella pagina corretta
 if (
