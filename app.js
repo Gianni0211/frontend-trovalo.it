@@ -36,7 +36,7 @@ const addProduct = (prodotti) => {
                 </p>
                 <div class='mt-5'>
                   <p class="h2 d-inline-block">${el.price}€</p>
-                <a class="view-more-cta float-right mr-4" href="/articolo.html?${
+                <a class="view-more-cta float-right mr-4" href="./articolo.html?${
                   el.id
                 }">Dettagli</a>
                 </div>

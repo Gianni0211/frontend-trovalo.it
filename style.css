@@ -110,7 +110,7 @@ footer {
     max-width: 100%;
     overflow: hidden;
   }
-} 
+}
 
 .container-custom {
   max-width: 90%;
@@ -173,7 +173,7 @@ footer {
   background-color: #f6f6f6;
   transition: 0.4s;
 }
-.search-box-full{
+.search-box-full {
   height: 40px;
   width: 80%;
   border: none;
@@ -218,7 +218,7 @@ footer {
   border: 2px dotted var(--accent-color);
   text-align: center;
   padding: 10px;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .add-cta:hover {
@@ -232,21 +232,21 @@ footer {
 }
 
 /*View more cta*/
-.view-more-cta{
+.view-more-cta {
   background-color: var(--accent-color);
   color: white;
   text-decoration: none;
   text-align: center;
   padding: 10px 20px;
   border-radius: 10px;
-  transition: .4s;
+  transition: 0.4s;
 }
 .view-more-cta:hover {
   color: white;
   text-decoration: none;
   transform: scale(1.1);
 }
-.view-more-cta:active{
+.view-more-cta:active {
   text-decoration: none;
   color: white;
 }
@@ -508,8 +508,6 @@ html.is-animating .transition-fade {
   font-weight: 900;
 }
 
-
-
 /*Container carosello*/
 
 .swiper-container {
@@ -517,4 +515,6 @@ html.is-animating .transition-fade {
   width: 100%;
 }
 
-
+/* .form-control-custom {
+  border-radius: 20px;
+} */
