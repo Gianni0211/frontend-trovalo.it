@@ -108,11 +108,12 @@ footer {
 @media screen and (max-width: 576px) {
   .sfondo {
     max-width: 100%;
+    overflow: hidden;
   }
-}
+} 
 
 .container-custom {
-  min-width: 80%;
+  max-width: 90%;
   background-color: white;
   padding-right: 5px;
   padding-left: 5px;
@@ -172,6 +173,14 @@ footer {
   background-color: #f6f6f6;
   transition: 0.4s;
 }
+.search-box-full{
+  height: 40px;
+  width: 80%;
+  border: none;
+  border-radius: 20px;
+  background-color: #f6f6f6;
+  transition: 0.4s;
+}
 
 .search__expanded {
   width: 200px;
@@ -185,11 +194,14 @@ footer {
 .search-box:focus,
 .search-box:active,
 .search__expanded:focus,
-.search__expanded:active {
+.search__expanded:active,
+.search-box-full:focus,
+.search-box-full:active {
   background-color: #f6f6f6;
   border: none;
   box-shadow: none;
   padding-right: 80px;
+  outline: none;
 }
 
 .form-wrapper {
@@ -206,6 +218,7 @@ footer {
   border: 2px dotted var(--accent-color);
   text-align: center;
   padding: 10px;
+  transition: .4s;
 }
 
 .add-cta:hover {
@@ -216,6 +229,26 @@ footer {
 
 .add-cta i {
   margin-right: 20px;
+}
+
+/*View more cta*/
+.view-more-cta{
+  background-color: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: .4s;
+}
+.view-more-cta:hover {
+  color: white;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+.view-more-cta:active{
+  text-decoration: none;
+  color: white;
 }
 
 .login-user {
@@ -474,3 +507,14 @@ html.is-animating .transition-fade {
 .text-title {
   font-weight: 900;
 }
+
+
+
+/*Container carosello*/
+
+.swiper-container {
+  height: 100%;
+  width: 100%;
+}
+
+

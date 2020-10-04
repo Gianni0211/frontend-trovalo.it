@@ -23,7 +23,7 @@ const addProduct = (prodotti) => {
   prodotti.forEach((el) => {
     const div = document.createElement("div");
     div.innerHTML = `
-          <div class="product-detail-card mt-5">
+          <div class="product-detail-card mt-5 mb-5">
               <div class="img-prod-d">
                 <img src="${el.image}" class="img-fluid"  alt="${el.title}" />
               </div>
@@ -34,9 +34,13 @@ const addProduct = (prodotti) => {
                 <p class="lead">
                   ${el.description.substr(0, 50)}[..]
                 </p>
-                <p class="h2 d-inline-block">${el.price}€</p>
-                <div class="add-cta float-right mr-4">Dettagli</div>
-              </div>
+                <div class='mt-5'>
+                  <p class="h2 d-inline-block">${el.price}€</p>
+                <a class="view-more-cta float-right mr-4" href="/articolo.html?${
+                  el.id
+                }">Dettagli</a>
+                </div>
+            </div>
           </div>`;
 
     productWrapper.appendChild(div);
@@ -110,13 +114,13 @@ const orderByPrice = (data) => {
   const decrescente = document.querySelector("#decrescente");
 
   crescente.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let test = data.sort((a, b) => a.price - b.price);
     addProduct(test);
   });
 
   decrescente.addEventListener("click", (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let test = data.sort((a, b) => b.price - a.price);
     addProduct(test);
   });
@@ -144,6 +148,8 @@ const productSett = async () => {
   try {
     const dataJson = await fetch("https://fakestoreapi.com/products");
     const data = await dataJson.json();
+
+    localStorage.setItem("data", JSON.stringify(data));
     orderByPrice(data);
 
     filterByPrice(data);
@@ -157,10 +163,35 @@ const productSett = async () => {
   }
 };
 
+//Populate article details
+
+const url = new URL(window.location.href);
+
+const productDetailSetter = () => {
+  if (url.search) {
+    const titolo = document.querySelector("#titolo");
+    const price = document.querySelector("#price");
+    const category = document.querySelector("#category");
+    const description = document.querySelector("#description");
+    const carouselImg = document.querySelectorAll(".swiper-slide img");
+
+    //Accedo dal local storage per performance
+    let dataString = localStorage.getItem("data");
+    let data = JSON.parse(dataString);
+
+    //filtro in base al paramentro inserito nell url (id prodotto)
+    const product = data.filter((el) => el.id == url.search[1]);
+    //popolo i campi
+    titolo.innerHTML = product[0].title;
+    price.innerHTML = product[0].price + "€";
+    category.innerHTML = product[0].category;
+    description.innerHTML = product[0].description;
+    carouselImg.forEach((el) => (el.src = product[0].image));
+  }
+};
+productDetailSetter();
+
 //Controlliamo di essere nella pagina corretta
-if (
-  window.location.href == "http://127.0.0.1:5500/products.html" ||
-  window.location.href.split("/")[4] == "products"
-) {
+if (url.pathname.includes("/products.html")) {
   productSett();
 }

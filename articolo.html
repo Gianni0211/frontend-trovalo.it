@@ -21,13 +21,18 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=Noto+Sans+KR:wght@100;400;700&display=swap"
       rel="stylesheet"
     />
-    <!--slick-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+
+    <!-- Carousel -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
     <!-- Nostro css -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="sfondo pb-5">
+    <div class="sfondo  d-block mx-auto">
       <!--navbar-->
       <section class="container-custom">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -44,7 +49,6 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <!--questo rompe il tutto, valutiamo se tenerlo o farlo custom con js-->
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a
@@ -99,8 +103,10 @@
           </div>
         </nav>
       </section>
+
       <section class="prodotto">
         <div class="container-custom mt-5">
+<<<<<<< HEAD
           <div class="row my-4 mt-5 align-items-center">
             <div class="col-12 col-md-8">
             <div class="" id="slider">
@@ -108,22 +114,49 @@
              <div><img src="./media/products/prod-2.png" width="150px" alt=""></div>
              <div><img src="./media/products/prod-3.png" width="150px" alt=""></div>
             </div>
+=======
+          <div class="row my-4 mt-5">
+            <div class="col-12 col-md-8 h-100 px-5">
+              <!-- Inizia qui -->
+              <div class="swiper-container">
+                <div class="swiper-container gallery-top">
+                  <div class="swiper-wrapper text-center">
+                    <div class="swiper-slide"><img src="./media/products/prod-1.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-2.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-3.png" alt="" width="50%"></div>
+                   
+                  </div>
+                  <!-- Add Arrows -->
+                  <div class="swiper-button-next swiper-button-black"></div>
+                  <div class="swiper-button-prev swiper-button-black"></div>
+                </div>
+                <div class="swiper-container gallery-thumbs">
+                  <div class="swiper-wrapper text-center">
+                    <div class="swiper-slide"><img src="./media/products/prod-1.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-2.png" alt="" width="50%"></div>
+                    <div class="swiper-slide"><img src="./media/products/prod-3.png" alt="" width="50%"></div>
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- Finisce qui -->
+>>>>>>> c99745dcb7cb1ad3bcb61b34fa410f1c0d5e9519
             </div>
             <div class="col-12 my-5 col-md-4 text-center text-lg-left">
-              <h2 class="text-title">Titolo</h2>
+              <h2 class="text-title" id='titolo'>Titolo</h2>
               <p class="small">
                 <span><i class="fas fa-map-marker-alt"></i></span>
                 Roma
               </p>
-              <p class="lead text-title">12€</p>
-              <p class="font-italic">Informatica</p>
-              <a href="" class="add-cta float-lg-right mr-md-3"
+              <p class="lead text-title" id="price">12€</p>
+              <p class="font-italic" id='category'>Informatica</p>
+              <a href="" class="view-more-cta float-lg-right mr-md-3"
                 >Contatta ora!</a
               >
             </div>
             <div class="col-12 my-5">
               <h2 class="text-title text-center">Descrizione</h2>
-              <p class="w-75 mx-auto">
+              <p class="w-75 mx-auto" id="description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
                 at ullam dolore natus architecto consequatur fugiat aut sint est
                 reiciendis iste corporis aspernatur voluptatum nihil molestias,
@@ -139,160 +172,156 @@
         <div class="container-custom">
           <div class="row">
             <div class="col-12">
-             
-                <div
-                  class="row container-header align-items-center justify-content-center"
-                >
-                  <div class="col-12  text-left">
-                    <h2>Nome</h2>
-                    <p class="small">31/04/66</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <p>22</p>
-                    <p>Annunci online</p>
-                  </div>
-                  <div class="col-6 text-center">
-                    <p>100</p>
-                    <p>Annunci pubblicati</p>
-                  </div>
-                  <div class="col-12 text-center">
-                   
-                   <a href="" class="add-cta">
+              <div
+                class="row container-header align-items-center justify-content-center"
+              >
+                <div class="col-12 text-left ml-5">
+                  <h2>Nome</h2>
+                  <p class="small">31/04/66</p>
+                </div>
+                <div class="col-6 text-center">
+                  <p>22</p>
+                  <p>Annunci online</p>
+                </div>
+                <div class="col-6 text-center">
+                  <p>100</p>
+                  <p>Annunci pubblicati</p>
+                </div>
+                <div class="col-12 text-center">
+                  <a href="" class="add-cta">
                     <i class="fas fa-phone fa-rotate-180"></i>
                     Contatta
-                    
-                    
-                   </a>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <div class="">
+        <div class="row">
+          <div class="col-12">
+            <footer class="page-footer font-small stylish-color-dark pt-4">
+              <!-- Footer Links -->
+              <div class="container text-center text-md-left">
+                <!-- Grid row -->
+                <div class="row">
+                  <!-- Grid column -->
+                  <div class="col-md-4 mx-auto">
+                    <!-- Content -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                      Troval<span class="d-none">o</span
+                      ><span><i class="fas fa-search logo"></i></span>
+                    </h5>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Itaque inventore quas perferendis veniam.
+                    </p>
+                  </div>
+                  <!-- Grid column -->
+  
+                  <hr class="clearfix w-100 d-md-none" />
+  
+                  <!-- Grid column -->
+                  <div class="col-md-2 mx-auto">
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                      Links
+                    </h5>
+  
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Grid column -->
+  
+                  <hr class="clearfix w-100 d-md-none" />
+  
+                  <hr class="clearfix w-100 d-md-none" />
+  
+                  <!-- Grid column -->
+                  <div class="col-md-2 mx-auto">
+                    <!-- Links -->
+                    <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
+                      Links
+                    </h5>
+  
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                      <li>
+                        <a href="#!">Lorem, ipsum dolor.</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+              </div>
+              <!-- Footer Links -->
+  
+              <hr />
+  
+              <!-- Social buttons -->
+              <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-fb mx-1">
+                    <i class="fab fa-facebook-f"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-tw mx-1">
+                    <i class="fab fa-twitter"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-gplus mx-1">
+                    <i class="fab fa-google-plus-g"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-li mx-1">
+                    <i class="fab fa-linkedin-in"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-dribbble mx-1">
+                    <i class="fab fa-dribbble"> </i>
+                  </a>
+                </li>
+              </ul>
+              <!-- Social buttons -->
+  
+              <!-- Copyright -->
+              <div class="footer-copyright text-center py-3">
+                © 2020 Copyright: Gianni Mondello & Salvatore Boukaleb
+                @hackademy18
+              </div>
+              <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
     </div>
 
     <!-- Footer -->
-    <div class="container-custom p-0">
-      <div class="row">
-        <div class="col-12">
-          <footer class="page-footer font-small stylish-color-dark pt-4">
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left">
-              <!-- Grid row -->
-              <div class="row">
-                <!-- Grid column -->
-                <div class="col-md-4 mx-auto">
-                  <!-- Content -->
-                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-                    Troval<span class="d-none">o</span
-                    ><span><i class="fas fa-search logo"></i></span>
-                  </h5>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Itaque inventore quas perferendis veniam.
-                  </p>
-                </div>
-                <!-- Grid column -->
-
-                <hr class="clearfix w-100 d-md-none" />
-
-                <!-- Grid column -->
-                <div class="col-md-2 mx-auto">
-                  <!-- Links -->
-                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-                    Links
-                  </h5>
-
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Grid column -->
-
-                <hr class="clearfix w-100 d-md-none" />
-
-                <hr class="clearfix w-100 d-md-none" />
-
-                <!-- Grid column -->
-                <div class="col-md-2 mx-auto">
-                  <!-- Links -->
-                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">
-                    Links
-                  </h5>
-
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                    <li>
-                      <a href="#!">Lorem, ipsum dolor.</a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Grid column -->
-              </div>
-              <!-- Grid row -->
-            </div>
-            <!-- Footer Links -->
-
-            <hr />
-
-            <!-- Social buttons -->
-            <ul class="list-unstyled list-inline text-center">
-              <li class="list-inline-item">
-                <a class="btn-floating btn-fb mx-1">
-                  <i class="fab fa-facebook-f"> </i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn-floating btn-tw mx-1">
-                  <i class="fab fa-twitter"> </i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn-floating btn-gplus mx-1">
-                  <i class="fab fa-google-plus-g"> </i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn-floating btn-li mx-1">
-                  <i class="fab fa-linkedin-in"> </i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn-floating btn-dribbble mx-1">
-                  <i class="fab fa-dribbble"> </i>
-                </a>
-              </li>
-            </ul>
-            <!-- Social buttons -->
-
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">
-              © 2020 Copyright: Gianni Mondello & Salvatore Boukaleb
-              @hackademy18
-            </div>
-            <!-- Copyright -->
-          </footer>
-          <!-- Footer -->
+    
         </div>
       </div>
     </div>
@@ -319,24 +348,34 @@
       src="https://kit.fontawesome.com/85e1570e38.js"
       crossorigin="anonymous"
     ></script>
-<!--slick slider-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
+    <!-- Carousel js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Nostro js -->
     <script src="app.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('#slider').slick({
-         slidesToShow: 1,
-         slidesToScroll: 1,
-         arrows: false,
-         fade: true,
-        /*  asNavFor: '.slider-nav' */
-  });
-});
-      
-      
+
+    <script type="module">
+      var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      slidesPerView: 4,
+      loop: true,
+      freeMode: true,
+      loopedSlides: 5, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      loop:true,
+      loopedSlides: 5, //looped slides should be the same
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs,
+      },
+    });
     </script>
   </body>
 </html>
