@@ -105,14 +105,126 @@
             <div class="col-12 col-md-3 pt-5 pb-5">
                 <img src="./media/admin-page.jpg" class="img-fluid w-100" alt="">
             </div>
-            <div class="col-12 col-md-6 pt-4 pl-md-5">
+            <div class="col-12 col-md-6 pt-4 pl-md-5 text-center text-md-left">
                 <h4>Bentornato Admin</h4>
                 <p><i class="far fa-user pt-3"></i> <span>Admin Admin</span></p>
                 <p><i class="far fa-envelope-open"></i> <span>admin@example.com</span></p>
             </div>
+            <div class="col-12 col-md-3 pt-md-5">
+                <div class="card p-3 mb-3 p-lg-5 text-center "><a href="" class="text-decoration-none text-dark">Nessun Nuovo Messaggio</a>
+            </div>
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pb-5">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-link active text-dark" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home " aria-selected="true">Nuove Inserzioni</a>
+                      <a class="nav-link text-dark" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Inserzioni attive</a>
+                      <a class="nav-link text-dark" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Inserzioni terminate</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content table-hover" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Utente</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Prezzo</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Musica</td>
+                                <td>12 €</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Auto</td>
+                                <td>8000 €</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>Telefonia</td>
+                                <td>350 €</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Utente</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">N. Visite</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Erling</td>
+                            <td>Telefonia</td>
+                            <td>59</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Roman</td>
+                            <td>Abbigliamento</td>
+                            <td>21</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Manuel</td>
+                            <td>Libri</td>
+                            <td>10</td>
+                          </tr>
+                        </tbody>
+                      </table></div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Utente</th>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Recensione</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td>Lucas</td>
+                                <td>Libri</td>
+                                <td><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">2</th>
+                                <td>John</td>
+                                <td>Auto</td>
+                                <td><i class="fas fa-star"></i><i class="fas fa-star"></i></td>
+                              </tr>
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>Frenk</td>
+                                <td>Fai da Te</td>
+                                <td><i class="fas fa-star"></i></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
       
       
 
@@ -239,6 +351,8 @@
         </div>
       </div>
     </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
