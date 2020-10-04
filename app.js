@@ -169,6 +169,7 @@ const url = new URL(window.location.href);
 
 
 const productDetailSetter = () => {
+
   if (url.search) {
     const titolo = document.querySelector("#titolo");
     const price = document.querySelector("#price");
@@ -182,13 +183,18 @@ const productDetailSetter = () => {
 
     //filtro in base al paramentro inserito nell url (id prodotto)
     const product = data.filter((el) => el.id == url.search.replace(/\?/,''));
-    console.log(product)
-    //popolo i campi
+    console.log(product.length)
+    if(product.length === 0) {
+      window.location.replace('./404.html')
+    } else{
+      //popolo i campi
     titolo.innerHTML = product[0].title;
     price.innerHTML = product[0].price + "€";
     category.innerHTML = product[0].category;
     description.innerHTML = product[0].description;
     carouselImg.forEach((el) => (el.src = product[0].image));
+    }
+    
   }
 };
 productDetailSetter();
