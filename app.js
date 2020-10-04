@@ -167,6 +167,7 @@ const productSett = async () => {
 
 const url = new URL(window.location.href);
 
+
 const productDetailSetter = () => {
   if (url.search) {
     const titolo = document.querySelector("#titolo");
@@ -180,7 +181,8 @@ const productDetailSetter = () => {
     let data = JSON.parse(dataString);
 
     //filtro in base al paramentro inserito nell url (id prodotto)
-    const product = data.filter((el) => el.id == url.search[1]);
+    const product = data.filter((el) => el.id == url.search.replace(/\?/,''));
+    console.log(product)
     //popolo i campi
     titolo.innerHTML = product[0].title;
     price.innerHTML = product[0].price + "€";
