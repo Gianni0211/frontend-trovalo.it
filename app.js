@@ -167,7 +167,6 @@ const productSett = async () => {
 
 const url = new URL(window.location.href);
 
-
 const productDetailSetter = () => {
 
   if (url.search) {
@@ -183,7 +182,7 @@ const productDetailSetter = () => {
 
     //filtro in base al paramentro inserito nell url (id prodotto)
     const product = data.filter((el) => el.id == url.search.replace(/\?/,''));
-    console.log(product.length)
+  
     if(product.length === 0) {
       window.location.replace('./404.html')
     } else{
@@ -203,3 +202,42 @@ productDetailSetter();
 if (url.pathname.includes("/products.html")) {
   productSett();
 }
+
+
+
+//Pannello Admin
+
+const pannelloAdminWrapper = document.querySelector('#admin')
+
+pannelloAdminWrapper.innerHTML = 'prova'
+
+
+//key: acc_1643e6117e90762
+//secret: 09999287d9f90cd2fd90f636a580018f
+
+const adiminPannelData = async()=>{
+ 
+
+
+  //Accedo dal local storage per performance
+  let dataString = localStorage.getItem("data");
+  let data = JSON.parse(dataString);
+   //filtro in base al paramentro inserito nell url (id prodotto)
+   const product = data.filter((el) => el.id == url.search.replace(/\?/,''));
+  
+
+  const imgUrl= product[0].image
+ console.log(imgUrl)
+  const imgData = await fetch('https://api.imagga.com/v2/tags?image_url=' + encodeURIComponent(imgUrl) , {
+    method: 'get',
+    headers: new Headers ({
+      "X-Auth-Token": "acc_1643e6117e90762:09999287d9f90cd2fd90f636a580018f",
+      "Content-Type": "application/json"
+    })
+  })
+  console.log(imgData)
+  
+
+}
+
+adiminPannelData()
