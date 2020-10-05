@@ -209,35 +209,28 @@ if (url.pathname.includes("/products.html")) {
 
 const pannelloAdminWrapper = document.querySelector('#admin')
 
-pannelloAdminWrapper.innerHTML = 'prova'
-
-
-//key: acc_1643e6117e90762
-//secret: 09999287d9f90cd2fd90f636a580018f
-
-const adiminPannelData = async()=>{
+if(localStorage.getItem('admin') == 'true') {
  
 
-
-  //Accedo dal local storage per performance
-  let dataString = localStorage.getItem("data");
-  let data = JSON.parse(dataString);
-   //filtro in base al paramentro inserito nell url (id prodotto)
-   const product = data.filter((el) => el.id == url.search.replace(/\?/,''));
-  
-
-  const imgUrl= product[0].image
- console.log(imgUrl)
-  const imgData = await fetch('https://api.imagga.com/v2/tags?image_url=' + encodeURIComponent(imgUrl) , {
-    method: 'get',
-    headers: new Headers ({
-      "X-Auth-Token": "acc_1643e6117e90762:09999287d9f90cd2fd90f636a580018f",
-      "Content-Type": "application/json"
-    })
-  })
-  console.log(imgData)
-  
-
+  pannelloAdminWrapper.innerHTML = `<div class="my-5">
+  <h3>Zaino</h3>
+<div class="progress ">
+ <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 99%"></div>
+</div>
+</div>
+<div class="my-5">
+ <h3>Sangue</h3>
+<div class="progress ">
+<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+</div>
+</div>
+<div class="my-5">
+<h3>Carosello</h3>
+<div class="progress ">
+<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+</div>
+</div>`
+} else {
+  pannelloAdminWrapper.innerHTML = ''
 }
 
-adiminPannelData()
