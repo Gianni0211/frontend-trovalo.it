@@ -168,7 +168,6 @@ const productSett = async () => {
 const url = new URL(window.location.href);
 
 const productDetailSetter = () => {
-
   if (url.search) {
     const titolo = document.querySelector("#titolo");
     const price = document.querySelector("#price");
@@ -181,19 +180,18 @@ const productDetailSetter = () => {
     let data = JSON.parse(dataString);
 
     //filtro in base al paramentro inserito nell url (id prodotto)
-    const product = data.filter((el) => el.id == url.search.replace(/\?/,''));
-  
-    if(product.length === 0) {
-      window.location.replace('./404.html')
-    } else{
+    const product = data.filter((el) => el.id == url.search.replace(/\?/, ""));
+
+    if (product.length === 0) {
+      window.location.replace("./404.html");
+    } else {
       //popolo i campi
-    titolo.innerHTML = product[0].title;
-    price.innerHTML = product[0].price + "€";
-    category.innerHTML = product[0].category;
-    description.innerHTML = product[0].description;
-    carouselImg.forEach((el) => (el.src = product[0].image));
+      titolo.innerHTML = product[0].title;
+      price.innerHTML = product[0].price + "€";
+      category.innerHTML = product[0].category;
+      description.innerHTML = product[0].description;
+      carouselImg.forEach((el) => (el.src = product[0].image));
     }
-    
   }
 };
 productDetailSetter();
@@ -203,34 +201,38 @@ if (url.pathname.includes("/products.html")) {
   productSett();
 }
 
-
-
 //Pannello Admin
+let showAdmin = localStorage.getItem("admin") == "true"
+const pannelloAdminWrapper = document.querySelector("#admin");
+console.log(showAdmin)
 
-const pannelloAdminWrapper = document.querySelector('#admin')
-
-if(localStorage.getItem('admin') == 'true') {
- 
-
-  pannelloAdminWrapper.innerHTML = `<div class="my-5">
-  <h3>Zaino</h3>
-<div class="progress ">
- <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 99%"></div>
-</div>
-</div>
-<div class="my-5">
- <h3>Sangue</h3>
-<div class="progress ">
-<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
-</div>
-</div>
-<div class="my-5">
-<h3>Carosello</h3>
-<div class="progress ">
-<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-</div>
-</div>`
-} else {
-  pannelloAdminWrapper.innerHTML = ''
+if (url.pathname == "/articolo.html") {
+  console.log('primo if')
+  if (showAdmin) {
+    console.log('secondo if')
+    pannelloAdminWrapper.innerHTML = `<div class="my-5">
+          <h3>Zaino</h3>
+        <div class="progress ">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 99%"></div>
+        </div>
+        </div>
+        <div class="my-5">
+        <h3>Sangue</h3>
+        <div class="progress ">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 10%"></div>
+        </div>
+        </div>
+        <div class="my-5">
+        <h3>Carosello</h3>
+        <div class="progress ">
+        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+        </div>`;
+  } else{
+    console.log('else')
+    pannelloAdminWrapper.innerHTML = "";
+  }
+  
 }
+
 
