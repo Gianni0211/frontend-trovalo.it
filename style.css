@@ -190,7 +190,16 @@ footer {
   background-color: #f6f6f6;
   transition: 0.4s;
 }
-
+@media screen and (max-width:576px){
+  .search__expanded {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    background-color: #f6f6f6;
+    transition: 0.4s;
+  }
+}
 .search-box:focus,
 .search-box:active,
 .search__expanded:focus,
